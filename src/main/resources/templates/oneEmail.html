@@ -6,12 +6,10 @@
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
-
 <section class="content">
-    <h1>🤑 Free money no scam - very easy</h1>
-    <p>&#x1F389; &#128176; Your email has been added to our list! &#128176; &#x1F389; </p>
+    <li th:text="${emailToDisplay}"></li>
     <form method="GET" action="/">
-        <input type="submit" value="Add another e-mail">
+        <input type="submit" value="back to frontpage">
     </form>
 </section>
 </body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Free money </title>
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
+</head>
+<body>
+<section>
+    <p style="text-align: center; text-decoration-line: underline">All registered e-mails:</p>
+    <table>
+        <tr th:each="email: ${emails}">
+            <td th:text="${email}">email_addres</td>
+        </tr>
+    </table>
+    <form method="GET" action="/">
+        <input type="submit" value="back to frontpage">
+    </form>
+</section>
+</body>
+</html>

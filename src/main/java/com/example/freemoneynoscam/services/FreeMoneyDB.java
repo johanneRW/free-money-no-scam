@@ -49,8 +49,8 @@ public class FreeMoneyDB {
     public boolean hasEmail(String email) {
         try {
 
-            String serchForEmail = "SELECT COUNT(*) FROM emails WHERE `email_addres` = ?";
-            PreparedStatement stmt = con.prepareStatement(serchForEmail);
+            String searchForEmail = "SELECT COUNT(*) FROM emails WHERE `email_addres` = ?";
+            PreparedStatement stmt = con.prepareStatement(searchForEmail);
             stmt.setString(1, email);
             stmt.execute();
 
@@ -64,6 +64,11 @@ public class FreeMoneyDB {
             return false;
         }
     }
+
+    public Connection getCon() {
+        return con;
+    }
+
 }
 
 

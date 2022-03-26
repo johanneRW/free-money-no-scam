@@ -7,11 +7,14 @@
 </head>
 <body>
 <section class="content">
-    <h1>🤑 Free money no scam - very easy</h1>
-    <p>Your email is already on our list.<br>
-        So just sit back and relax &#128526; </p>
+
+    <table>
+         <tr th:each="email: ${emails}">
+            <td th:text="${email}">email_addres</td>
+        </tr>
+    </table>
     <form method="GET" action="/">
-        <input type="submit" value="Add another e-mail">
+        <input type="submit" value="back to frontpage">
     </form>
 </section>
 </body>

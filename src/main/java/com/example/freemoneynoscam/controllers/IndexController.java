@@ -1,7 +1,9 @@
 package com.example.freemoneynoscam.controllers;
 
+import com.example.freemoneynoscam.services.EmailRepository;
 import com.example.freemoneynoscam.services.ValidateEmailService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
@@ -10,6 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class IndexController {
     ValidateEmailService validationService = new ValidateEmailService();
+    EmailRepository er = new EmailRepository();
 
     public IndexController() {
     }
@@ -49,4 +52,23 @@ public class IndexController {
     public String duplicate() {
         return "duplicate";
     }
+
+    @GetMapping("/oneEmail")
+    public String oneEmail(Model model) {
+        String email = er.fetchSingleEmail();
+        model.addAttribute("emailToDisplay", email);
+        return "oneEmail";
+    }
+
+    @GetMapping("/fourEmails")
+    public String  fetchFourEmails(Model model) {
+        model.addAttribute("emails", er.fetchFourEmails());
+        return "fourEmails";
+    }
+    @GetMapping("/allEmails")
+    public String  fetchAllEmails(Model model) {
+        model.addAttribute("emails", er.fetchAllEmails());
+        return "allEmails";
+    }
 }
+
